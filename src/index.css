@@ -1,27 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&family=Pirata+One&family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-base: #0A0A0A;
-  --color-primary: #F5F5F5;
-  --color-accent: #FFFFFF;
-  --color-accent-soft: #444444;
-  --color-accent-warm: #1A1A1A;
-  --color-accent-silver: #A9A9A9;
+  --color-base: #FFFFFF;
+  --color-paper: #FAF9F6;
+  --color-primary: #1A1A1A;
+  --color-gold: #D4AF37;
+  --color-gold-soft: #F4EBD0;
+  --color-accent-muted: #E5E5E5;
   
-  --font-display: "Syne", sans-serif;
-  --font-body: "Space Grotesk", sans-serif;
-  --font-gothic: "Pirata One", system-ui;
-  --font-y2k: "Orbitron", sans-serif;
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Montserrat", sans-serif;
 }
 
 @layer base {
   body {
-    @apply bg-base text-primary font-body antialiased selection:bg-white selection:text-black;
+    @apply bg-base text-primary font-body antialiased selection:bg-gold selection:text-white;
   }
 
   h1, h2, h3, h4, .font-display {
-    @apply font-display tracking-tight leading-[0.85] uppercase;
+    @apply font-display tracking-tight leading-tight lowercase;
   }
 
   /* Custom Scrollbar */
@@ -29,25 +27,36 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-base;
+    @apply bg-paper;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-accent-soft;
+    @apply bg-gold/30;
   }
 }
 
 @layer utilities {
-  .text-outline {
-    -webkit-text-stroke: 1px currentColor;
-    color: transparent;
+  .text-gold {
+    color: #D4AF37;
+  }
+
+  .border-gold {
+    border-color: #D4AF37;
   }
   
   .glass {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+    @apply bg-white/40 backdrop-blur-md border border-white/20;
   }
   
-  .chrome-text {
-    background: linear-gradient(180deg, #FFFFFF 0%, #A9A9A9 50%, #444444 100%);
+  .cheetah-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M36 34c0-2.209-1.791-4-4-4s-4 1.791-4 4 1.791 4 4 4 4-1.791 4-4zm0-30c0-2.209-1.791-4-4-4s-4 1.791-4 4 1.791 4 4 4 4-1.791 4-4zM6 34c0-2.209-1.791-4-4-4S-2 31.791-2 34s1.791 4 4 4 4-1.791 4-4zm0-30c0-2.209-1.791-4-4-4S-2 1.791-2 4s1.791 4 4 4 4-1.791 4-4zm15 15c0-2.209-1.791-4-4-4s-4 1.791-4 4 1.791 4 4 4 4-1.791 4-4zm30 0c0-2.209-1.791-4-4-4s-4 1.791-4 4 1.791 4 4 4 4-1.791 4-4z' /%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #D4AF37 0%, #F4EBD0 50%, #D4AF37 100%);
+  }
+
+  .gold-text-gradient {
+    background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #B8860B 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

@@ -1,55 +1,73 @@
 import { motion } from "motion/react";
-import { Zap } from "lucide-react";
-
-const StageHero = () => (
-  <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-black text-white font-light">
-    <div className="relative z-10 flex flex-col items-center text-center">
-      <motion.span 
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 0.3, y: 0 }}
-        className="text-[10px] md:text-[11px] font-y2k tracking-[1.5em] uppercase mb-8 border-b border-white/10 pb-4"
-      >
-        Handmade Press-Ons
-      </motion.span>
-      
-      <motion.h1 
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        className="text-6xl md:text-9xl tracking-[0.2em] uppercase mb-16 px-6 md:px-12 font-display leading-tight"
-      >
-        L D <br /> 
-        <span className="font-gothic normal-case italic text-white/40 block -mt-4 md:-mt-8">Claws</span>
-      </motion.h1>
-
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className="flex gap-8 md:gap-24 items-center"
-      >
-        <span className="font-y2k text-lg md:text-2xl italic tracking-tighter opacity-40">US BASED</span>
-        <button className="w-16 h-16 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all group">
-          <Zap size={20} className="group-hover:fill-current" />
-        </button>
-        <span className="font-y2k text-lg md:text-2xl italic tracking-tighter opacity-40">Professional</span>
-      </motion.div>
-    </div>
-
-    {/* Background elements */}
-    <div className="absolute inset-0 z-0 pointer-events-none">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-white opacity-[0.02] rounded-full blur-[120px]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vh] md:text-[60vh] font-black italic opacity-[0.01] select-none leading-none">
-        LC
-      </div>
-    </div>
-  </section>
-);
+import { Sparkles } from "lucide-react";
 
 export default function Hero() {
   return (
-    <div className="bg-[#050505] text-white w-full h-screen overflow-hidden">
-      <StageHero />
-    </div>
+    <section className="relative h-[95vh] w-full flex flex-col items-center justify-center overflow-hidden pt-20">
+      <div className="relative z-10 flex flex-col items-center text-center max-w-5xl px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex items-center gap-3 mb-8"
+        >
+          <span className="h-[1px] w-8 bg-gold/50"></span>
+          <span className="text-[10px] uppercase tracking-[0.4em] text-gold font-medium">
+            bespoke nail artistry
+          </span>
+          <span className="h-[1px] w-8 bg-gold/50"></span>
+        </motion.div>
+        
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="text-7xl md:text-[10rem] font-display mb-12 leading-[0.8] text-primary"
+        >
+          nail <br />
+          <span className="pl-12 md:pl-32 italic font-light lowercase">artist</span>
+        </motion.h1>
+
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="flex flex-col items-center gap-8"
+        >
+          <p className="max-w-md text-primary/60 text-sm md:text-base leading-relaxed font-light tracking-wide uppercase">
+            elevating the craft of nail design through minimalist elegance and distinct precision.
+          </p>
+          
+          <div className="flex items-center gap-4">
+            <span className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold">Based in New York</span>
+            <div className="w-1 h-1 bg-gold rounded-full"></div>
+            <span className="text-[11px] uppercase tracking-[0.2em] text-primary/50">EST 2024</span>
+          </div>
+
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-4 px-12 py-4 bg-primary text-white rounded-full text-[11px] uppercase tracking-[0.3em] font-semibold hover:bg-gold transition-colors duration-500 shadow-xl shadow-primary/10"
+          >
+            book session
+          </motion.button>
+        </motion.div>
+      </div>
+
+      {/* Decorative Elements */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 flex gap-20 opacity-[0.03]">
+        <span className="text-[20vw] font-display italic text-primary">na</span>
+        <span className="text-[20vw] font-display translate-y-20 text-primary">nyc</span>
+      </div>
+      
+      <motion.div 
+        animate={{ 
+          y: [0, 10, 0],
+        }}
+        transition={{ duration: 3, repeat: Infinity }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-gold/40"
+      >
+        <Sparkles className="w-5 h-5" />
+      </motion.div>
+    </section>
   );
 }
