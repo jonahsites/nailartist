@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&family=Pirata+One&family=Orbitron:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-base: #0A0A0A;
+  --color-primary: #F5F5F5;
+  --color-accent: #FFFFFF;
+  --color-accent-soft: #444444;
+  --color-accent-warm: #1A1A1A;
+  --color-accent-silver: #A9A9A9;
+  
+  --font-display: "Syne", sans-serif;
+  --font-body: "Space Grotesk", sans-serif;
+  --font-gothic: "Pirata One", system-ui;
+  --font-y2k: "Orbitron", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-base text-primary font-body antialiased selection:bg-white selection:text-black;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    @apply font-display tracking-tight leading-[0.85] uppercase;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-base;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent-soft;
+  }
+}
+
+@layer utilities {
+  .text-outline {
+    -webkit-text-stroke: 1px currentColor;
+    color: transparent;
+  }
+  
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+  
+  .chrome-text {
+    background: linear-gradient(180deg, #FFFFFF 0%, #A9A9A9 50%, #444444 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
